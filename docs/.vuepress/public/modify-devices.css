@@ -1,0 +1,3 @@
+.device-header, .device-power, .device-btns, .device-sensors::before, .device-sensors::after {
+  display: none;
+}
