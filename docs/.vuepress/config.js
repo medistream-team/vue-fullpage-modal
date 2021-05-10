@@ -1,5 +1,4 @@
 module.exports = {
-  // FIXME: 문서용 임시 base
   base: "/vue-fullpage-modal/",
   title: 'Fullpage Modal',
   themeConfig: {

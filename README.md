@@ -19,7 +19,6 @@
 
 ## Documentation
 
-<!-- FIXME link -->
 Checkout [Documentation📝](https://medistream-team.github.io/vue-fullpage-modal/)
 
 ## Install
