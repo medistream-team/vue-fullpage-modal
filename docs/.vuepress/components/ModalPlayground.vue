@@ -126,7 +126,7 @@ export default {
         width: ['100%', 50, 100, 500, '200px', ''],
         height: ['100%', 300, 1000, 1500, '200px', ''],
         maxHeight: ['100%', 300, '200px', ''],
-        // FIXME: hex color 미지원 (playground에서만 안된다)
+        // FIXME: hex color not supproted in Playground
         backgroundColor: ['red', '', 'rgba(128, 128, 128, 0.4)', 'cadetblue', 'random', 'random'],
         horizontal: ['left', 'center', 'right'],
         vertical: ['top', 'center', 'bottom'],
@@ -217,7 +217,7 @@ export default {
           console.dir(error)
         } finally {
           if(errorExist){
-            this.modalStylesInputError = '올바른 값을 입력해주세요'
+            this.modalStylesInputError = 'Please enter the correct json value'
           }
 
           if(!errorExist){

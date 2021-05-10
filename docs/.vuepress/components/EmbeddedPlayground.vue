@@ -1,5 +1,4 @@
 <template>
-<!-- // TODO: background image 추가 :style="{ backgroundImage: 'url(\'/1.jpg\')' }" -->
   <div></div>
 </template>
 

@@ -32,7 +32,7 @@ export default {
     },
     show: function (modalOptions, componentPropsOrAttrs = {}) {
       const { component, template, componentName, fpmId = this.modals.length , ...modalProps } = modalOptions
-      const { key = Symbol('fullpage-modal') } = modalOptions // vue-final-modal 방식 참고
+      const { key = Symbol('fullpage-modal') } = modalOptions // cf. vue-final-modal
 
       if (component) {
         this.modals.push({ key, fpmId, show: true, component, modalProps, componentPropsOrAttrs })

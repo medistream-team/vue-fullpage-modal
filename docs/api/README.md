@@ -33,7 +33,7 @@ this.$FModal.show(modalOptions, componentPropsOrAttrs)
 
 ##### component
 
-<!-- <p class="description">Vue Component가 와야합니다.</p> -->
+<!-- <p class="description">Vue Component.</p> -->
 
 -  Type: `Object`
 -  Required

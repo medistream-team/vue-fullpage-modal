@@ -1,5 +1,5 @@
 <template>
-<!-- // TODO: background image 추가 :style="{ backgroundImage: 'url(\'/1.jpg\')' }" -->
+<!-- // TODO: add background image :style="{ backgroundImage: 'url(\'/1.jpg\')' }" -->
   <div>
     <div :style="{ display: 'flex', justifyContent: 'center' }">
       <button class="openModal" @click="openModal">{{ open ? 'close': 'open' }}</button>

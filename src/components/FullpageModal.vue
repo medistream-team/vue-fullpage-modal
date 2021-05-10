@@ -12,8 +12,8 @@
 </template>
 
 <script>
-// TODO: util로 분리
-// TODO: closeAnimationSideEffect도 preventAnimationSideEffect 내부에 포함시켜야한다.
+// TODO: should be seperated by util
+// TODO: should include closeAnimationSideEffect inpreventAnimationSideEffect
 
 function stopPropagation (e) {
   e.stopPropagation()
@@ -34,7 +34,7 @@ function preventAnimationSideEffect (options = {}) {
     document.body.style.overflow = ''
     return
   }
-  // animation으로 인해 scrollbar가 생겼다 사라지고 이로인해 생기는 부가적인 화면 움직임을 일시적으로 막아준다
+  // The scrollbar is created and disappeared due to animation. it temporarily prevents additional screen movement.
   document.body.style.overflow = 'hidden'
 }
 
@@ -216,7 +216,7 @@ export default {
 <style>
 .fpm--modal {
   z-index: 900;
-  /* FIXME: 100vh로는 horizontal scrollbar가 있는 경우 scrollbar 영역만큼을 초과하게 된다. */
+  /* // FIXME: If there is a scrollbar, the screen exceeds the scrollbar area */
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -263,7 +263,7 @@ export default {
   border-radius: 4px;
 }
 
-/* animation도 여러개 추가해서 Prop으로 제공 */
+/* // TODO: add more animations */
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.4s;

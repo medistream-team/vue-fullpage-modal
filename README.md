@@ -64,7 +64,6 @@ export default {
 
 ## Contributor
 
-<!-- TODO: 링크 -->
 #### 👥  [**Medistream**](https://github.com/medistream-team) 
 
   - [ktseo41](https://github.com/ktseo41) <br />
