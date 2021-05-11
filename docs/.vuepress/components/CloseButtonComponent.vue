@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style scoped>
+.content {
+  padding: 0px 10px 10px 10px;
+}
 .close {
   display: flex;
   justify-content: flex-end;
