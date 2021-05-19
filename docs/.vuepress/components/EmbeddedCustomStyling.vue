@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
     },
     openModal() {
       this.opened = true
-      this.$FModal.show({ component: BasicComponent, overlayStyles: { backgroundColor: 'rgba(72, 128, 48, 0.4)' }, contentStyles: { border: '4px solid grey', padding: '20px' } })
+      this.$FModal.show({ component: BasicComponent, overlayStyles: { backgroundColor: 'rgba(72, 128, 48, 0.4)' }, contentStyles: { border: '4px solid grey', borderBottomLeftRadius: '25px', borderBottomRightRadius: '25px' } })
     }
   },
 }

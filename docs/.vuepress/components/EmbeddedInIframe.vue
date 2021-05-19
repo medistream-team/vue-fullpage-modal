@@ -2,7 +2,7 @@
 <!-- // TODO: add background image :style="{ backgroundImage: 'url(\'/1.jpg\')' }" -->
   <div>
     <div :style="{ display: 'flex', justifyContent: 'center' }">
-      <button class="openModal" @click="openModal">{{ open ? 'close': 'open' }}</button>
+      <button class="openModal" @click="openModal">Open</button>
     </div>
   </div>
 </template>
@@ -33,7 +33,6 @@ export default {
       }
 
       this.renderOptions = { ...renderOptions }
-      // this.$FModal.show(renderOptions)
     }
   },
   mounted() {
@@ -48,7 +47,10 @@ export default {
     openModal: function(){
       this.$FModal.show(
         { 
-          component: HelloWorld
+          component: HelloWorld,
+          contentStyles: {
+            fontSize: '1.2rem'
+          }
         }, 
         { 
           msg: "Welcome to Your Vue.js App" 

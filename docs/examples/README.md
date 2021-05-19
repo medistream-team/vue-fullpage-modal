@@ -9,7 +9,7 @@
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -24,21 +24,6 @@ export default {
   }, 
 }
 </script>
-<style scoped>
-.wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-button.open {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #fff;
-  background-color: #3eaf7c;
-  padding: 0.6rem 1.4rem;
-  border-radius: 4px;
-}
-</style>
 ```
 
 ### *BasicComponent*
@@ -55,7 +40,7 @@ button.open {
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -85,7 +70,7 @@ export default {
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -113,16 +98,13 @@ export default {
 
 <example-modal-component-props />
 
-### *PropsComponent*
-
-<<< @/docs/.vuepress/components/PropsComponent.vue
 ### Usage
 
 ```html
 <template>
   <div>
     <button @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -148,6 +130,10 @@ export default {
 </script>
 ```
 
+### *PropsComponent*
+
+<<< @/docs/.vuepress/components/PropsComponent.vue
+
 ## Custom Styling
 
 <example-custom-styling />
@@ -158,7 +144,7 @@ export default {
 <template>
   <div>
     <button @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -176,7 +162,8 @@ export default {
           }, 
           contentStyles: { 
             border: '4px solid grey', 
-            padding: '20px' 
+            borderBottomLeftRadius: '25px',
+            borderBottomRightRadius: '25px'
           } 
         }
       )
@@ -185,3 +172,60 @@ export default {
 }
 </script>
 ```
+
+### *BasicComponent*
+
+<<< @/docs/.vuepress/components/BasicComponent.vue
+
+## Image
+
+<example-custom-styling />
+
+### Usage
+
+```html
+<template>
+  <div>
+    <button @click="openModal">
+      Open
+    </button>
+  </div>
+</template>
+<script>
+import BasicComponent from '../src/components/BasicComponent'
+
+export default {
+  methods: {
+    openModal() {
+      this.$FModal.show(
+        { 
+          component: BasicComponent, 
+          overlayStyles: { 
+            backgroundColor: 'rgba(72, 128, 48, 0.4)'
+          }, 
+          contentStyles: { 
+            border: '4px solid grey', 
+            borderBottomLeftRadius: '25px',
+            borderBottomRightRadius: '25px'
+          } 
+        }
+      )
+    }
+  }
+}
+</script>
+```
+
+<style>
+.device-wrapper {
+  height: calc(870px * 0.7);
+  width: calc(660px * 0.7);
+}
+
+.device {
+  position: relative;
+  transform: scale(0.7);
+  transform-origin: 50% 0%;
+  z-index: 1;
+}
+</style>
