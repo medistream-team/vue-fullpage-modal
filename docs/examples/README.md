@@ -172,3 +172,60 @@ export default {
 }
 </script>
 ```
+
+### *BasicComponent*
+
+<<< @/docs/.vuepress/components/BasicComponent.vue
+
+## Image
+
+<example-custom-styling />
+
+### Usage
+
+```html
+<template>
+  <div>
+    <button @click="openModal">
+      Open
+    </button>
+  </div>
+</template>
+<script>
+import BasicComponent from '../src/components/BasicComponent'
+
+export default {
+  methods: {
+    openModal() {
+      this.$FModal.show(
+        { 
+          component: BasicComponent, 
+          overlayStyles: { 
+            backgroundColor: 'rgba(72, 128, 48, 0.4)'
+          }, 
+          contentStyles: { 
+            border: '4px solid grey', 
+            borderBottomLeftRadius: '25px',
+            borderBottomRightRadius: '25px'
+          } 
+        }
+      )
+    }
+  }
+}
+</script>
+```
+
+<style>
+.device-wrapper {
+  height: calc(870px * 0.7);
+  width: calc(660px * 0.7);
+}
+
+.device {
+  position: relative;
+  transform: scale(0.7);
+  transform-origin: 50% 0%;
+  z-index: 1;
+}
+</style>
