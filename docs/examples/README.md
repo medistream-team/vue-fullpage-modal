@@ -98,9 +98,6 @@ export default {
 
 <example-modal-component-props />
 
-### *PropsComponent*
-
-<<< @/docs/.vuepress/components/PropsComponent.vue
 ### Usage
 
 ```html
@@ -132,6 +129,10 @@ export default {
 }
 </script>
 ```
+
+### *PropsComponent*
+
+<<< @/docs/.vuepress/components/PropsComponent.vue
 
 ## Custom Styling
 
