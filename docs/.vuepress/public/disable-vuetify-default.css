@@ -14,7 +14,3 @@ html {
   max-width: none;
   position: static;
 }
-
-li, p.description {
-  font-size: 1.2rem;
-}
