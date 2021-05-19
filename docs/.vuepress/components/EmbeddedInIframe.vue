@@ -2,7 +2,7 @@
 <!-- // TODO: add background image :style="{ backgroundImage: 'url(\'/1.jpg\')' }" -->
   <div>
     <div :style="{ display: 'flex', justifyContent: 'center' }">
-      <button class="openModal" @click="openModal">{{ 'Open' }}</button>
+      <button class="openModal" @click="openModal">Open</button>
     </div>
   </div>
 </template>
