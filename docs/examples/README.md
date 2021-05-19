@@ -24,21 +24,6 @@ export default {
   }, 
 }
 </script>
-<style scoped>
-.wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-button.open {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #fff;
-  background-color: #3eaf7c;
-  padding: 0.6rem 1.4rem;
-  border-radius: 4px;
-}
-</style>
 ```
 
 ### *BasicComponent*
