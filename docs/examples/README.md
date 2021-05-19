@@ -179,7 +179,7 @@ export default {
 
 ## Image
 
-<example-custom-styling />
+<example-modal-image />
 
 ### Usage
 
@@ -192,22 +192,14 @@ export default {
   </div>
 </template>
 <script>
-import BasicComponent from '../src/components/BasicComponent'
+import ImageComponent from '../src/components/ImageComponent'
 
 export default {
   methods: {
     openModal() {
       this.$FModal.show(
         { 
-          component: BasicComponent, 
-          overlayStyles: { 
-            backgroundColor: 'rgba(72, 128, 48, 0.4)'
-          }, 
-          contentStyles: { 
-            border: '4px solid grey', 
-            borderBottomLeftRadius: '25px',
-            borderBottomRightRadius: '25px'
-          } 
+          component: ImageComponent, 
         }
       )
     }
@@ -215,6 +207,10 @@ export default {
 }
 </script>
 ```
+
+### *ImageComponent*
+
+<<< @/docs/.vuepress/components/ImageComponent.vue
 
 <style>
 .device-wrapper {
