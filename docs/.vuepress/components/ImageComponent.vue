@@ -45,7 +45,7 @@ export default {
 .loading-indicator {
   background-size: cover;
   background-position: center;
-  height: 139px
+  height: 139px;
 }
 
 .image-title {
