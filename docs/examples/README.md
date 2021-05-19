@@ -162,7 +162,8 @@ export default {
           }, 
           contentStyles: { 
             border: '4px solid grey', 
-            padding: '20px' 
+            borderBottomLeftRadius: '25px',
+            borderBottomRightRadius: '25px'
           } 
         }
       )
