@@ -51,17 +51,18 @@ export default {
 .image-title {
   padding: 10px 10px 5px 10px;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .image-description {
   padding: 0px 10px 10px 10px;
   color: rgba(128, 128, 128, 0.8);
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .content {
   padding: 10px;
+  font-size: 1.3rem;
 }
 </style>
