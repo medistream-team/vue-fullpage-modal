@@ -9,7 +9,7 @@
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -70,7 +70,7 @@ export default {
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -104,7 +104,7 @@ export default {
 <template>
   <div>
     <button @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
@@ -144,7 +144,7 @@ export default {
 <template>
   <div>
     <button @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>

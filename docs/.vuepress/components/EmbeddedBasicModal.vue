@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <button class="open" @click="openModal">
-      open
+      Open
     </button>
   </div>
 </template>
