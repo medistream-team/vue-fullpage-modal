@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .content {
-  padding: 0px 10px 10px 10px;
+  padding: 0px 15px 15px 15px;
 }
 .close {
   display: flex;
