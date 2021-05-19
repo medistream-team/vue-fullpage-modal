@@ -105,7 +105,7 @@ export default {
   data: function () {
     return {
       open: false,
-      template: `<div :style="{ padding: '10px 10px 10px 10px' }"><div :style="{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '5px' }">title</div><div :style="{ fontSize: '1.5rem' }">Aute nisi enim aliquip esse consectetur ea. Incididunt minim exercitation eu Lorem officia reprehenderit pariatur sit id occaecat. Incididunt nostrud et quis in laboris. Ullamco elit anim pariatur aliquip. Enim esse ullamco sint elit aute ut occaecat enim irure consequat aliquip. Officia ex amet ut est incididunt ad laborum qui in pariatur deserunt.</div></div>`,
+      template: `<div :style="{ padding: '15px 15px 15px 15px' }"><div :style="{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '5px' }">title</div><div :style="{ fontSize: '1.5rem' }">Aute nisi enim aliquip esse consectetur ea. Incididunt minim exercitation eu Lorem officia reprehenderit pariatur sit id occaecat. Incididunt nostrud et quis in laboris. Ullamco elit anim pariatur aliquip. Enim esse ullamco sint elit aute ut occaecat enim irure consequat aliquip. Officia ex amet ut est incididunt ad laborum qui in pariatur deserunt.</div></div>`,
       componentName: undefined,
       modalProps: {},
       width: undefined,
