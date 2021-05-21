@@ -6,7 +6,8 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "files": [
     "src",
