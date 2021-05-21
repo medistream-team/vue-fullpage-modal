@@ -1,6 +1,6 @@
 <template>
 <div class="fpm--modal-container">
-  <fullpage-modal v-for="(modal, index) in modals" :fpmId="modal.fpmId !== undefined ? modal.fpmId : index" v-model="modal.show" v-bind="modal.modalProps" v-bind:key="modal.key">
+  <fullpage-modal v-for="(modal, index) in modals" :rootShouldBeFixed="modal.rootShouldBeFixed" :fpmId="modal.fpmId !== undefined ? modal.fpmId : index" v-model="modal.show" v-bind="modal.modalProps" v-bind:key="modal.key">
     <component :is="modal.component" v-bind="modal.componentPropsOrAttrs"></component>
   </fullpage-modal>
 </div>
@@ -33,9 +33,14 @@ export default {
     show: function (modalOptions, componentPropsOrAttrs = {}) {
       const { component, template, componentName, fpmId = this.modals.length , ...modalProps } = modalOptions
       const { key = Symbol('fullpage-modal') } = modalOptions // cf. vue-final-modal
+      let rootShouldBeFixed = true
+
+      if(this.modals.length !== 0){
+        rootShouldBeFixed = false
+      }
 
       if (component) {
-        this.modals.push({ key, fpmId, show: true, component, modalProps, componentPropsOrAttrs })
+        this.modals.push({ key, fpmId, show: true, rootShouldBeFixed, component, modalProps, componentPropsOrAttrs })
         return
       }
 
@@ -43,18 +48,22 @@ export default {
         const customComponent = {}
         customComponent.template = template
         customComponent.data = () => ({ ...componentPropsOrAttrs })
-        this.modals.push({ key, fpmId, show: true, component: customComponent, modalProps })
+        this.modals.push({ key, fpmId, show: true, rootShouldBeFixed, component: customComponent, modalProps })
         return
       }
 
       if (componentName) {
-        this.modals.push({ key, fpmId, show: true, component: componentName, modalProps, componentPropsOrAttrs })
+        this.modals.push({ key, fpmId, show: true, rootShouldBeFixed, component: componentName, modalProps, componentPropsOrAttrs })
       }
     },
     hide: function (fpmId) {
       if (fpmId !== undefined) return
       const lastModalFpmId = this.modals[this.modals.length - 1].fpmId
+      const isSecondModal = this.modals.length === 2;
       this.$FModal.eventInterface.$emit('hide-dynamic', lastModalFpmId)
+      if(isSecondModal){
+        this.$FModal.eventInterface.$emit('fix-root-app')
+      }
     }
   }
 }
