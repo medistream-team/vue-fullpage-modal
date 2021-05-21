@@ -3,7 +3,7 @@
     <transition appear name="fade">
       <div class="fpm--modal-overlay" :style="overlayStyles" @click.self.stop="overlayOnClick" v-show="visible"></div>
     </transition>
-    <transition appear @after-enter="afterOpenModal" @before-leave="beforeCloseModal" @after-leave="afterCloseModal" name="bounce-up">
+    <transition appear @after-enter="afterOpenModal" @before-leave="beforeCloseModalAnimation" @after-leave="afterCloseModalAnimation" name="bounce-up">
       <div class="fpm--modal-content" :style="computedContentStyles" v-show="visible">
         <slot></slot>
       </div>
@@ -46,6 +46,9 @@ export default {
     },
     fpmId: {
       type: Number | String
+    },
+    rootShouldBeFixed: {
+      type: Boolean
     },
     maxHeight: {
       type: Number | String,
@@ -138,10 +141,13 @@ export default {
   created: function () {
     window.addEventListener('keyup', this.closeIfEsc)
     this.$FModal.eventInterface.$on('hide-dynamic', this.hideDynamicCallback)
+    this.$FModal.eventInterface.$on('fix-root-app', this.allowFixRootApp)
   },
   mounted: function () {
     if (this.value) {
-      this.fixRootApp()
+      if(this.rootShouldBeFixed){
+        this.fixRootApp()
+      }
       setTimeout(() => {
         this.openModal()
       }, 17)
@@ -150,6 +156,7 @@ export default {
   beforeDestroy: function () {
     window.removeEventListener('keyup', this.closeIfEsc)
     this.$FModal.eventInterface.$off('hide-dynamic', this.hideDynamicCallback)
+    this.$FModal.eventInterface.$off('fix-root-app', this.allowFixRootApp)
   },
   data: function () {
     return {
@@ -178,12 +185,14 @@ export default {
       preventScrollEvent({ restore: true })
       preventAnimationSideEffect({ restore: true })
     },
-    beforeCloseModal: function () {
+    beforeCloseModalAnimation: function () {
       // preventCloseAnimationSideEffect
       this.$el.style.cssText += `position: fixed; left: 0; top: -${window.scrollY}px;`
     },
-    afterCloseModal: function () {
-      this.fixRootApp({ restore: true })
+    afterCloseModalAnimation: function () {
+      if(this.rootShouldBeFixed) {
+        this.fixRootApp({ restore: true })
+      }
       this.closeModal()
     },
     fixRootApp: function (options = {}) {
@@ -197,6 +206,9 @@ export default {
       this.rootScrollY = window.scrollY
       const rootOffsetWidth = this.$root.$el.offsetWidth
       this.$root.$el.style.cssText = `position: fixed; top: -${this.rootScrollY}px; bottom: 0; width: ${rootOffsetWidth}px`
+    },
+    allowFixRootApp: function(){
+      this.allowFixRootApp = true
     },
     openModal: function () {
       preventAnimationSideEffect()
@@ -220,6 +232,7 @@ export default {
   min-height: 100vh;
   width: 100%;
   display: flex;
+  position: absolute;
 }
 
 /* placement */
