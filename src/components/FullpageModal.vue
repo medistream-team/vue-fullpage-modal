@@ -227,12 +227,12 @@ export default {
 
 <style>
 .fpm--modal {
-  z-index: 900;
+  display: flex;
+  position: absolute;
   /* // FIXME: If there is a scrollbar, the screen exceeds the scrollbar area */
   min-height: 100vh;
   width: 100%;
-  display: flex;
-  position: absolute;
+  z-index: 900;
 }
 
 /* placement */
@@ -262,18 +262,18 @@ export default {
 
 .fpm--modal-overlay {
   position: fixed;
-  width: 100%;
-  height: 100vh;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100vh;
   background-color: rgba(128, 128, 128, 0.3)
 }
 
 .fpm--modal-content {
-  z-index: 910;
   position: relative;
   max-width: 100%;
   border-radius: 4px;
+  z-index: 910;
 }
 
 /* // TODO: add more animations */
