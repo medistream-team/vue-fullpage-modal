@@ -13,7 +13,7 @@
   </a>
 </p>
 <p align="center">
-<img width="250px" src="ex.gif" />
+<img width="250px" src="Kapture 2021-05-23 at 22.07.24.gif" />
 </p>
 
 
