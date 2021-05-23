@@ -13,7 +13,7 @@
   </a>
 </p>
 <p align="center">
-<img width="250px" src="ex.gif" />
+<img width="250px" src="example.gif" />
 </p>
 
 
