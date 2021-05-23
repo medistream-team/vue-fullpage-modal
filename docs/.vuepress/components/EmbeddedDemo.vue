@@ -13,6 +13,11 @@ import DemoHelloWorld from './DemoHelloWorld'
 function postOnClose(){
   window.top.postMessage('modal-closed')
 }
+
+function easeInOutQuad(x) {
+  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+}
+
 export default {
   name:'embedded-demo',
   created: function (){
@@ -35,9 +40,20 @@ export default {
       this.renderOptions = { ...renderOptions }
     }
   },
+  data() {
+    return {
+      scrollTime: 0
+    }
+  },
   mounted() {
     this.$FModal.eventInterface.$on('modal-closed', postOnClose)
     window.addEventListener('message', this.listenMessageFromParent)
+    setTimeout(() => {
+      this.openModal()
+    }, 2000);
+    setTimeout(() => {
+      requestAnimationFrame(this.scrollDown)
+    }, 2500);
   },
   destroyed: function(){
     this.$FModal.eventInterface.$off('modal-closed', postOnClose)
@@ -57,6 +73,16 @@ export default {
           msg: "Welcome to Your Vue.js App" 
         }
       )
+    },
+    scrollDown: function(){
+      const goalScrollY = 690
+      const step = 0.02
+      const amount = easeInOutQuad(this.scrollTime * step) * goalScrollY
+      this.scrollTime += 1;
+      window.scroll(0, amount)
+      if(window.scrollY !== goalScrollY){
+        return requestAnimationFrame(this.scrollDown)
+      }
     },
     listenMessageFromParent: function (e) {
       if(e.data === 'close'){

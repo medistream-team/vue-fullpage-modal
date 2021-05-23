@@ -25,6 +25,15 @@
     <h3 id="What-is-Vue-js">What is Vue.js?</h3>
     <br>
     <p style="font-size: 1rem; font-weight: normal;"><a href="https://vuejs.org/">Vue</a> (pronounced /vjuː/, like <strong>view</strong>) is a <strong>progressive framework</strong> for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with <a href="single-file-components.html">modern tooling</a> and <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="noopener">supporting libraries</a>.</p>
+    <h3 id="Declarative-Rendering">Declarative Rendering</h3>
+    <br>
+    <p style="font-size: 1rem; font-weight: normal;">At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:</p>
+    <div class="language-html extra-class">
+      <pre class="language-html">
+        <code>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span>{</span><span>{</span> message }}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre></div>
   </div>
 </template>
 
@@ -58,5 +67,8 @@ a {
   text-align: center;
   font-weight: bold;
   padding: 10px;
+}
+div.language-html.extra-class {
+  font-size: 0.8rem;
 }
 </style>
