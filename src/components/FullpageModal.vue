@@ -3,7 +3,7 @@
     <transition appear name="fade">
       <div class="fpm--modal-overlay" :style="overlayStyles" @click.self.stop="overlayOnClick" v-show="visible"></div>
     </transition>
-    <transition appear @after-enter="afterOpenModal" @before-leave="beforeCloseModalAnimation" @after-leave="afterCloseModalAnimation" name="bounce-up">
+    <transition appear @after-enter="afterOpenModal" @before-leave="beforeCloseModalAnimation" @after-leave="afterCloseModalAnimation" :name="animation">
       <div class="fpm--modal-content" :style="computedContentStyles" v-show="visible">
         <slot></slot>
       </div>
@@ -85,6 +85,10 @@ export default {
     },
     contentStyles: {
       type: String | Object | Array
+    },
+    animation: {
+      type: String,
+      default: 'bounce-up'
     }
   },
   computed: {
@@ -291,7 +295,15 @@ export default {
 .bounce-up-leave-active {
   animation: bounce-up 0.4s reverse;
 }
-
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition:all 0.4s;
+}
+.fade-up-enter,
+.fade-up-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity:0;
+  transform:translateY(10px);
+}
 @keyframes bounce-up {
   0% {
     opacity: 0;
