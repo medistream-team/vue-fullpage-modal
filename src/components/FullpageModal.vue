@@ -32,10 +32,12 @@ function preventAnimationSideEffect (options = {}) {
   const { restore } = options
   if (restore) {
     document.body.style.overflow = ''
+    document.documentElement.style.overflow = ''
     return
   }
   // The scrollbar is created and disappeared due to animation. it temporarily prevents additional screen movement.
   document.body.style.overflow = 'hidden'
+  document.documentElement.style.overflow = 'hidden'
 }
 
 export default {
@@ -197,6 +199,11 @@ export default {
       if(this.rootShouldBeFixed) {
         this.fixRootApp({ restore: true })
       }
+
+      // restore unexpected lock state
+      preventScrollEvent({ restore: true })
+      preventAnimationSideEffect({ restore: true })
+
       this.closeModal()
     },
     fixRootApp: function (options = {}) {
