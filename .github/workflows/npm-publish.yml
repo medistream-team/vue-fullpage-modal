@@ -2,14 +2,14 @@ name: Build and Deploy
 on: 
   push:
     branches:
-      - feature/continous-publish
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: feature/continous-publish
+        ref: master
     - uses: actions/setup-node@v2
       with:
         node-version: '14'
