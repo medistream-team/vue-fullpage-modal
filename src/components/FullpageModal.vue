@@ -32,10 +32,12 @@ function preventAnimationSideEffect (options = {}) {
   const { restore } = options
   if (restore) {
     document.body.style.overflow = ''
+    document.documentElement.style.overflow = ''
     return
   }
   // The scrollbar is created and disappeared due to animation. it temporarily prevents additional screen movement.
   document.body.style.overflow = 'hidden'
+  document.documentElement.style.overflow = 'hidden'
 }
 
 export default {
@@ -190,13 +192,18 @@ export default {
       preventAnimationSideEffect({ restore: true })
     },
     beforeCloseModalAnimation: function () {
-      // preventCloseAnimationSideEffect
+      // TODO: preventCloseAnimationSideEffect
       this.$el.style.cssText += `position: fixed; left: 0; top: -${window.scrollY}px;`
     },
     afterCloseModalAnimation: function () {
       if(this.rootShouldBeFixed) {
         this.fixRootApp({ restore: true })
       }
+
+      // restore unexpected lock state
+      preventScrollEvent({ restore: true })
+      preventAnimationSideEffect({ restore: true })
+
       this.closeModal()
     },
     fixRootApp: function (options = {}) {
@@ -280,7 +287,10 @@ export default {
   z-index: 910;
 }
 
+/* Animation */
 /* // TODO: add more animations */
+
+/* fade */
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.4s;
@@ -289,12 +299,14 @@ export default {
 .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity:0;
 }
+/* bounce-up */
 .bounce-up-enter-active {
   animation: bounce-up 0.4s;
 }
 .bounce-up-leave-active {
   animation: bounce-up 0.4s reverse;
 }
+/* fade-up */
 .fade-up-enter-active,
 .fade-up-leave-active {
   transition:all 0.4s;
