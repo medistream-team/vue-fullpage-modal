@@ -7,13 +7,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - name: Install Dependencies
+      uses: actions/checkout@v2
+      with:
+        ref: feature/continous-publish
+      uses: actions/setup-node@v2
       with:
         node-version: '14'
-    - name: Install Dependencies
-    - run: npm install
-    - run: npm test
+      run: npm install
 
     - name: Webpack build
       run: npm run build
