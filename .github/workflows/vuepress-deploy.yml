@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Vuepress Deploy
 on: 
   push:
     branches:
