@@ -7,8 +7,18 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/setup-node@v2
+      with:
+        node-verions: '14'
+
     - name: Checkout
       uses: actions/checkout@master
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Webpack build
+      run: npm run build
 
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
