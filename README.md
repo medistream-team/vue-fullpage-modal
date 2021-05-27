@@ -4,7 +4,9 @@
   </a>
 </p>
 <p align="center">
-  <span class="title" style="font-size: 28px;"><span style="font-weight: 300">Vue</span> <b>Fullpage Modal</b></span>
+  <a href="https://github.com/medistream-team/vue-fullpage-modal" target="_blank">
+    <img width="320px" src="vue-fullpage-modal-label.png" />
+  </a>
 </p>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.3.0-blue.svg?cacheSeconds=2592000" />
@@ -80,9 +82,3 @@ This project is [MIT](https://github.com/medistream-team/vue-fullpage-modal/blob
 
 <!-- ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_ -->
-
-<style>
-p.title {
-  font-size: 28px;
-}
-</style>
