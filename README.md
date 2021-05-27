@@ -1,7 +1,10 @@
 <p align="center">
   <a href="https://github.com/medistream-team/vue-fullpage-modal" target="_blank">
-    <img width="300px" src="logo.png" />
+    <img width="100px" src="vue-fullpage-modal.svg" />
   </a>
+</p>
+<p align="center">
+  <span style="font-size: 28px;"><span style="font-weight: 300">Vue</span> <b>Fullpage Modal</b></span>
 </p>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.3.0-blue.svg?cacheSeconds=2592000" />
