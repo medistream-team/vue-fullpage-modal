@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img width="250px" src="example-scrolling.gif" />
+  <img width="250px" src="example-scroll.gif" />
 </p>
 
 
