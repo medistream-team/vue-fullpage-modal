@@ -2,6 +2,7 @@ module.exports = {
   base: "/vue-fullpage-modal/",
   title: 'Fullpage Modal',
   themeConfig: {
+    logo: '/vue-fullpage-modal.svg',
     nav: [
       { text: 'Getting Started', link: '/'},
       { text: 'Playground', link: '/playground/'},
