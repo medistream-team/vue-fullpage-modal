@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://github.com/medistream-team/vue-fullpage-modal" target="_blank">
-    <img width="100px" src="vue-fullpage-modal.svg" />
+    <img width="150px" src="vue-fullpage-modal.svg" />
   </a>
 </p>
 <p align="center">
-  <span style="font-size: 28px;"><span style="font-weight: 300">Vue</span> <b>Fullpage Modal</b></span>
+  <span class="title" style="font-size: 28px;"><span style="font-weight: 300">Vue</span> <b>Fullpage Modal</b></span>
 </p>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.3.0-blue.svg?cacheSeconds=2592000" />
@@ -15,9 +15,9 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/vue-2.x-brightgreen.svg" />
   </a>
 </p>
-<p align="center">
+<!-- <p align="center">
 <img width="250px" src="example-scrolling.gif" />
-</p>
+</p> -->
 
 
 ## Documentation
@@ -80,3 +80,9 @@ This project is [MIT](https://github.com/medistream-team/vue-fullpage-modal/blob
 
 <!-- ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_ -->
+
+<style>
+p.title {
+  font-size: 28px;
+}
+</style>
