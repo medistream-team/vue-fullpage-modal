@@ -17,9 +17,10 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/vue-2.x-brightgreen.svg" />
   </a>
 </p>
-<!-- <p align="center">
-<img width="250px" src="example-scrolling.gif" />
-</p> -->
+
+<p align="center">
+  <img width="250px" src="example-scroll.gif" />
+</p>
 
 
 ## Documentation
