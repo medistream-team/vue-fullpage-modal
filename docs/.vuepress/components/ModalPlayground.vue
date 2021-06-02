@@ -46,7 +46,7 @@
           <v-text-field label="contentStyles" hide-details="auto" v-model="contentStyles" name="contentStyles" id="contentStyles" />
         </div>
         <div class="prop-item">
-          <v-select label="animation" :value="'coming soon'" :items="['coming soon']" name="animation" id="animation" disabled />
+          <v-select label="animation" v-model="animation" :items="animationItems" name="animation" id="animation" />
         </div>
       </div>
     </div>
@@ -122,6 +122,8 @@ export default {
       modalStylesInputError: undefined,
       overlayStyles: undefined,
       contentStyles: undefined,
+      animation: 'bounce-up',
+      animationItems: ['fade', 'fade-up', 'bounce-up'],
       randomBase: {
         width: ['100%', 50, 100, 500, '200px', ''],
         height: ['100%', 300, 1000, 1500, '200px', ''],
@@ -256,7 +258,8 @@ export default {
         placement: this.computedPlacement,
         modalStyles,
         overlayStyles,
-        contentStyles
+        contentStyles,
+        animation: this.animation
       }
     },
     computedPlacement: function () {

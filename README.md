@@ -1,6 +1,11 @@
 <p align="center">
   <a href="https://github.com/medistream-team/vue-fullpage-modal" target="_blank">
-    <img width="300px" src="logo.png" />
+    <img width="150px" src="vue-fullpage-modal.svg" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/medistream-team/vue-fullpage-modal" target="_blank">
+    <img width="320px" src="vue-fullpage-modal-label.png" />
   </a>
 </p>
 <p align="center">
@@ -12,8 +17,9 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/vue-2.x-brightgreen.svg" />
   </a>
 </p>
+
 <p align="center">
-<img width="250px" src="example-scrolling.gif" />
+  <img width="250px" src="example-scroll.gif" />
 </p>
 
 
