@@ -148,6 +148,9 @@ export default {
     },
     rootShouldBeFixed: function(){
       return this.modals.length === 1
+    },
+    isModalAtTop: function(){
+      return this.index === this.modals.length - 1
     }
   },
   created: function () {
@@ -185,6 +188,7 @@ export default {
     },
     closeIfEsc: function (event) {
       if (!this.escToClose) return
+      if (!this.isModalAtTop) return
       if (event.keyCode === 27) {
         this.visible = false
       }
