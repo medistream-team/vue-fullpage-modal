@@ -46,11 +46,14 @@ export default {
       type: Boolean,
       required: true
     },
+    index: {
+      type: Number
+    },
+    modals: {
+      type: Array
+    },
     fpmId: {
       type: Number | String
-    },
-    rootShouldBeFixed: {
-      type: Boolean
     },
     maxHeight: {
       type: Number | String,
@@ -142,6 +145,12 @@ export default {
       }
 
       return [{ marginTop: this.marginTop, backgroundColor: this.backgroundColor, boxShadow: this.boxShadow, width: this.convertedWidth, height: this.convertedHeight }, this.contentStyles]
+    },
+    rootShouldBeFixed: function(){
+      return this.modals.length === 1
+    },
+    isModalAtTop: function(){
+      return this.index === this.modals.length - 1
     }
   },
   created: function () {
@@ -179,6 +188,7 @@ export default {
     },
     closeIfEsc: function (event) {
       if (!this.escToClose) return
+      if (!this.isModalAtTop) return
       if (event.keyCode === 27) {
         this.visible = false
       }

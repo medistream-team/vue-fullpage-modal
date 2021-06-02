@@ -1,6 +1,6 @@
 <template>
 <div class="fpm--modal-container">
-  <fullpage-modal v-for="(modal, index) in modals" :rootShouldBeFixed="modal.rootShouldBeFixed" :fpmId="modal.fpmId !== undefined ? modal.fpmId : index" v-model="modal.show" v-bind="modal.modalProps" v-bind:key="modal.key">
+  <fullpage-modal v-for="(modal, index) in modals" :key="modal.key" v-model="modal.show" :index="index" :modals="modals" :fpmId="modal.fpmId === undefined ? index : modal.fpmId" v-bind="modal.modalProps" >
     <component :is="modal.component" v-bind="modal.componentPropsOrAttrs"></component>
   </fullpage-modal>
 </div>
@@ -33,14 +33,10 @@ export default {
     show: function (modalOptions, componentPropsOrAttrs = {}) {
       const { component, template, componentName, fpmId = this.modals.length , ...modalProps } = modalOptions
       const { key = Symbol('fullpage-modal') } = modalOptions // cf. vue-final-modal
-      let rootShouldBeFixed = true
 
-      if(this.modals.length !== 0){
-        rootShouldBeFixed = false
-      }
 
       if (component) {
-        this.modals.push({ key, fpmId, show: true, rootShouldBeFixed, component, modalProps, componentPropsOrAttrs })
+        this.modals.push({ key, fpmId, show: true, component, modalProps, componentPropsOrAttrs })
         return
       }
 
@@ -48,12 +44,12 @@ export default {
         const customComponent = {}
         customComponent.template = template
         customComponent.data = () => ({ ...componentPropsOrAttrs })
-        this.modals.push({ key, fpmId, show: true, rootShouldBeFixed, component: customComponent, modalProps })
+        this.modals.push({ key, fpmId, show: true, component: customComponent, modalProps })
         return
       }
 
       if (componentName) {
-        this.modals.push({ key, fpmId, show: true, rootShouldBeFixed, component: componentName, modalProps, componentPropsOrAttrs })
+        this.modals.push({ key, fpmId, show: true, component: componentName, modalProps, componentPropsOrAttrs })
       }
     },
     hide: function (fpmId) {
