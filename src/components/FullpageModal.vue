@@ -156,7 +156,6 @@ export default {
   created: function () {
     window.addEventListener('keyup', this.closeIfEsc)
     this.$FModal.eventInterface.$on('hide-dynamic', this.hideDynamicCallback)
-    this.$FModal.eventInterface.$on('fix-root-app', this.allowFixRootApp)
   },
   mounted: function () {
     if (this.value) {
@@ -171,7 +170,6 @@ export default {
   beforeDestroy: function () {
     window.removeEventListener('keyup', this.closeIfEsc)
     this.$FModal.eventInterface.$off('hide-dynamic', this.hideDynamicCallback)
-    this.$FModal.eventInterface.$off('fix-root-app', this.allowFixRootApp)
   },
   data: function () {
     return {
@@ -227,9 +225,6 @@ export default {
       this.rootScrollY = window.scrollY
       const rootOffsetWidth = this.$root.$el.offsetWidth
       this.$root.$el.style.cssText = `position: fixed; top: -${this.rootScrollY}px; bottom: 0; width: ${rootOffsetWidth}px`
-    },
-    allowFixRootApp: function(){
-      this.allowFixRootApp = true
     },
     openModal: function () {
       preventAnimationSideEffect()

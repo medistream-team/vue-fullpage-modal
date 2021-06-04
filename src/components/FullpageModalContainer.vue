@@ -18,12 +18,14 @@ export default {
     this.$FModal.eventInterface.$on('show-dynamic', this.show)
     this.$FModal.eventInterface.$on('hide-dynamic', this.hide)
     this.$FModal.eventInterface.$on('modal-closed', this.remove)
+    this.$FModal.eventInterface.$on('destroy-all', this.destroyAll)
   },
   beforeDestroy: function () {
     this.modals = []
     this.$FModal.eventInterface.$off('show-dynamic', this.show)
     this.$FModal.eventInterface.$off('hide-dynamic', this.hide)
     this.$FModal.eventInterface.$off('modal-closed', this.remove)
+    this.$FModal.eventInterface.$off('destroy-all', this.destroyAll)
   },
   methods: {
     remove: function (fpmId) {
@@ -52,14 +54,14 @@ export default {
         this.modals.push({ key, fpmId, show: true, component: componentName, modalProps, componentPropsOrAttrs })
       }
     },
-    hide: function (fpmId) {
-      if (fpmId !== undefined) return
+    hide: function () {
+      if (this.modals.length === 0) return
       const lastModalFpmId = this.modals[this.modals.length - 1].fpmId
-      const isSecondModal = this.modals.length === 2;
       this.$FModal.eventInterface.$emit('hide-dynamic', lastModalFpmId)
-      if(isSecondModal){
-        this.$FModal.eventInterface.$emit('fix-root-app')
-      }
+    },
+    destroyAll: function (){
+      if(this.modals.length === 0) return
+      this.modals = []
     }
   }
 }
