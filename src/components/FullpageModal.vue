@@ -235,6 +235,7 @@ export default {
       this.toggleModal = false
       this.exist = false
       this.$emit('input', false)
+      this.$emit('modal-closed', this.fpmId)
       this.$FModal.eventInterface.$emit('modal-closed', this.fpmId)
     }
   }
