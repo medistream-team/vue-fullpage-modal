@@ -19,6 +19,9 @@ export default {
       hide: function (...args) {
         eventInterface.$emit('hide-dynamic', ...args)
       },
+      destroyAll: function () {
+        eventInterface.$emit('destroy-all')
+      },
       eventInterface
     }
 

@@ -60,6 +60,10 @@ export default {
       if(isSecondModal){
         this.$FModal.eventInterface.$emit('fix-root-app')
       }
+    },
+    destroyAll: function (){
+      if(this.modals.length === 0) return
+      this.modals = []
     }
   }
 }
