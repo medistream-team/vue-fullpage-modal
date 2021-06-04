@@ -1,6 +1,6 @@
 {
   "name": "vue-fullpage-modal",
-  "version": "0.3.3",
+  "version": "0.4.3",
   "description": "vue fullpage style modal",
   "main": "dist/FullpageModal.js",
   "scripts": {
