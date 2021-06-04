@@ -54,8 +54,9 @@ export default {
         this.modals.push({ key, fpmId, show: true, component: componentName, modalProps, componentPropsOrAttrs })
       }
     },
-    hide: function () {
-      if (this.modals.length === 0) return
+    // The hide-dynamic event that the FullpageModalContainer receives must not have any arguments.
+    hide: function (fpmId) {
+      if (fpmId !== undefined) return
       const lastModalFpmId = this.modals[this.modals.length - 1].fpmId
       this.$FModal.eventInterface.$emit('hide-dynamic', lastModalFpmId)
     },
