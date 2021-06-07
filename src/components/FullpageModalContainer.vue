@@ -1,6 +1,6 @@
 <template>
 <div class="fpm--modal-container">
-  <fullpage-modal v-for="(modal, index) in modals" :key="modal.key" v-model="modal.show" :index="index" :modals="modals" :fpmId="modal.fpmId === undefined ? index : modal.fpmId" @modal-closed="modal.onClose" v-bind="modal.modalProps" >
+  <fullpage-modal v-for="(modal, index) in modals" :key="modal.key" v-model="modal.show" :index="index" :modals="modals" :fpmId="modal.fpmId === undefined ? index : modal.fpmId" @modal-closed="modal.onClose && modal.onClose" v-bind="modal.modalProps" >
     <component :is="modal.component" v-bind="modal.componentPropsOrAttrs"></component>
   </fullpage-modal>
 </div>
