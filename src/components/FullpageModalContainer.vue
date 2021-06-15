@@ -1,6 +1,6 @@
 <template>
 <div class="fpm--modal-container">
-  <fullpage-modal v-for="(modal, index) in modals" :key="modal.key" v-model="modal.show" :index="index" :modals="modals" :fpmId="modal.fpmId === undefined ? index : modal.fpmId" @modal-closed="modal.onClose && modal.onClose" v-bind="modal.modalProps" >
+  <fullpage-modal v-for="(modal, index) in modals" :key="modal.key" v-model="modal.show" :index="index" :modals="modals" :fpmId="modal.fpmId === undefined ? index : modal.fpmId" v-on="modal.onClose !== undefined ? { 'modal-closed': modal.onClose } : {}" v-bind="modal.modalProps" >
     <component :is="modal.component" v-bind="modal.componentPropsOrAttrs"></component>
   </fullpage-modal>
 </div>
@@ -35,7 +35,6 @@ export default {
     show: function (modalOptions, componentPropsOrAttrs = {}) {
       const { component, template, componentName, fpmId = this.modals.length, onClose, ...modalProps } = modalOptions
       const { key = Symbol('fullpage-modal') } = modalOptions // cf. vue-final-modal
-
 
       if (component) {
         this.modals.push({ key, fpmId, show: true, component, onClose, modalProps, componentPropsOrAttrs })
