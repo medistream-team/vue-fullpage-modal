@@ -55,9 +55,6 @@ export default {
     fpmId: {
       type: Number | String
     },
-    isBottomMost: {
-      type: Boolean
-    },
     maxHeight: {
       type: Number | String,
       default: '80%'
@@ -149,6 +146,9 @@ export default {
 
       return [{ marginTop: this.marginTop, backgroundColor: this.backgroundColor, boxShadow: this.boxShadow, width: this.convertedWidth, height: this.convertedHeight }, this.contentStyles]
     },
+    rootShouldBeFixed: function(){
+      return this.modals.length === 1
+    },
     isModalAtTop: function(){
       return this.index === this.modals.length - 1
     }
@@ -159,7 +159,7 @@ export default {
   },
   mounted: function () {
     if (this.value) {
-      if(this.isBottomMost){
+      if(this.rootShouldBeFixed){
         this.fixRootApp()
       }
       setTimeout(() => {
@@ -170,17 +170,6 @@ export default {
   beforeDestroy: function () {
     window.removeEventListener('keyup', this.closeIfEsc)
     this.$FModal.eventInterface.$off('hide-dynamic', this.hideDynamicCallback)
-
-  },
-  destroyed() {
-    // FIXME: tidy up restore logic. temporary implmentation
-    // restore app behavior on unexpected destorying
-    if(this.isBottomMost) {
-      this.fixRootApp({ restore: true })
-    }
-
-    preventScrollEvent({ restore: true })
-    preventAnimationSideEffect({ restore: true })
   },
   data: function () {
     return {
@@ -215,7 +204,7 @@ export default {
       this.$el.style.cssText += `position: fixed; left: 0; top: -${window.scrollY}px;`
     },
     afterCloseModalAnimation: function () {
-      if(this.isBottomMost) {
+      if(this.rootShouldBeFixed) {
         this.fixRootApp({ restore: true })
       }
 
