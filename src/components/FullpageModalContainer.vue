@@ -1,6 +1,6 @@
 <template>
 <div class="fpm--modal-container">
-  <fullpage-modal v-for="(modal, index) in modals" :key="modal.key" v-model="modal.show" :index="index" :modals="modals" :fpmId="modal.fpmId === undefined ? index : modal.fpmId" v-on="modal.onClose !== undefined ? { 'modal-closed': modal.onClose } : {}" v-bind="modal.modalProps" >
+  <fullpage-modal v-for="(modal, index) in modals" :key="modal.key" v-model="modal.show" :index="index" :modals="modals" :fpmId="modal.fpmId === undefined ? index : modal.fpmId" :isBottomMost="modal.isBottomMost" v-on="modal.onClose !== undefined ? { 'modal-closed': modal.onClose } : {}" v-bind="modal.modalProps" >
     <component :is="modal.component" v-bind="modal.componentPropsOrAttrs"></component>
   </fullpage-modal>
 </div>
@@ -35,9 +35,10 @@ export default {
     show: function (modalOptions, componentPropsOrAttrs = {}) {
       const { component, template, componentName, fpmId = this.modals.length, onClose, ...modalProps } = modalOptions
       const { key = Symbol('fullpage-modal') } = modalOptions // cf. vue-final-modal
+      const isBottomMost = this.modals.length === 0
 
       if (component) {
-        this.modals.push({ key, fpmId, show: true, component, onClose, modalProps, componentPropsOrAttrs })
+        this.modals.push({ key, fpmId, show: true, component, isBottomMost, onClose, modalProps, componentPropsOrAttrs })
         return
       }
 
@@ -45,12 +46,12 @@ export default {
         const customComponent = {}
         customComponent.template = template
         customComponent.data = () => ({ ...componentPropsOrAttrs })
-        this.modals.push({ key, fpmId, show: true, component: customComponent, onClose, modalProps })
+        this.modals.push({ key, fpmId, show: true, component: customComponent, isBottomMost, onClose, modalProps })
         return
       }
 
       if (componentName) {
-        this.modals.push({ key, fpmId, show: true, component: componentName, onClose, modalProps, componentPropsOrAttrs })
+        this.modals.push({ key, fpmId, show: true, component: componentName, isBottomMost, onClose, modalProps, componentPropsOrAttrs })
       }
     },
     // The hide-dynamic event that the FullpageModalContainer receives must not have any arguments.
