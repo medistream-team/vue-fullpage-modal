@@ -1,0 +1,31 @@
+.device-stripe, .device-header, .device-power, .device-btns, .device-sensors::before, .device-sensors::after {
+  display: none;
+}
+
+.device-iphone-8 .device-frame {
+  padding: 70px 22px 50px 22px;
+}
+
+.device-iphone-8 .device-content {
+  border: 2px solid hsla(0, 0%, 13%, 0.49);
+  border-radius: 30px;
+  height: 751px;
+}
+
+ .device-iphone-8 .device-sensors {
+  margin-left: -33px;
+  width: 66px;
+  top: 30px;
+ }
+
+ .device-wrapper {
+  height: calc(870px * 0.7);
+  width: calc(660px * 0.7);
+}
+
+.device {
+  position: relative;
+  transform: scale(0.7);
+  transform-origin: 50% 0%;
+  z-index: 1;
+}

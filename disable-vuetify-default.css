@@ -1,0 +1,16 @@
+
+
+html {
+  overflow-y: auto;
+}
+
+.v-application--wrap {
+  flex: 0 1 auto;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  display: block;
+  flex-direction: column;
+  min-height: auto;
+  max-width: none;
+  position: static;
+}
