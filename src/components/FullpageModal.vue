@@ -203,6 +203,7 @@ export default {
       }
     },
     overlayOnClick: function () {
+      this.$emit('overlay-clicked', this.fpmId)
       if (!this.clickToClose) return
       this.visible = false
     },

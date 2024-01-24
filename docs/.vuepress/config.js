@@ -21,7 +21,10 @@ module.exports = {
     ['link', { rel: 'stylesheet', href: '/devices.min.css' }],
     ['link', { rel: 'stylesheet', href: '/modify-devices.css' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'}],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css'}]
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css'}],
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/favicon-32x32.png', sizes: '32x32' }],
+    ['link', { rel: 'icon', href: '/favicon-16x16.png', sizes: '16x16' }],
   ],
   port: 8088, 
   chainWebpack(config, isServer){

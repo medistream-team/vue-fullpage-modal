@@ -1,13 +1,13 @@
 {
   "name": "vue-fullpage-modal",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "vue fullpage style modal",
   "main": "dist/FullpageModal.js",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack",
+    "watch": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --watch"
   },
   "files": [
     "src",
