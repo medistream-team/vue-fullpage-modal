@@ -7,15 +7,17 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v4
       with:
-        node-verions: '14'
+        node-version: '18'
 
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v4
+      with:
+        ref: master
 
     - name: Install Dependencies
-      run: npm install
+      run: npm install --legacy-peer-deps
 
     - name: Webpack build
       run: npm run build
