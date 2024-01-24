@@ -6,8 +6,8 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack",
+    "watch": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --watch"
   },
   "files": [
     "src",
